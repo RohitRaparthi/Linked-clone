@@ -81,7 +81,7 @@ CLIENT_ORIGIN=http://localhost:3000
 
 ### 🔹 Frontend (`frontend/.env`)
 ```env
-REACT_APP_API_BASE=http://localhost:5000/api
+REACT_APP_API_BASE=https://linked-clone-xf8p.onrender.com
 ```
 ---
 
