@@ -9,8 +9,23 @@ import postRoutes from './routes/post.routes.js';
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://linked-clone-f3yz.vercel.app"
+];
 
-app.use(cors({ origin: process.env.CLIENT_ORIGIN, credentials: false }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS: " + origin));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(morgan('dev'));
 
